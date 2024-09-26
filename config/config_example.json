@@ -1,0 +1,30 @@
+{
+  "microscopy_video_path": "/path/to/microscopy/video.tif",
+  "segmentation_mask_path": "/path/to/microscopy/mask.tif",
+  "output_dir": "path/to/output/directory",
+  "csv_folder": "folder/with/csv/trajectories",
+  "trajectories": [
+    {
+      "name": "rolling",
+      "file": "trajectories_rolling.csv",
+      "color": [255, 165, 0]
+    },
+    {
+      "name": "motionless",
+      "file": "trajectories_motionless.csv",
+      "color": [0, 128, 255]
+    },
+    {
+      "name": "bumped",
+      "file": "trajectories_bumped.csv",
+      "color": [128, 0, 128]
+    }
+  ],
+  "mask_colors": {
+    "1": [255, 0, 127],
+    "2": [0, 128, 0]
+  },
+  "alpha": 0.3,
+  "chunk_size": 2000,
+  "output_frequency": 1000
+}
