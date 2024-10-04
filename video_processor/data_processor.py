@@ -17,6 +17,7 @@ class DataProcessor:
         self.batch_frame_processor = BatchFrameProcessor(
             self.trajectory_data,
             self.config_loader.get('mask_colors', {}),
+            tuple(self.config_loader.get('text_color', [])),
             self.config_loader.get('alpha'),
             self.config_loader.get('output_frequency')
         )

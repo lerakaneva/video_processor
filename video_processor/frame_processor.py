@@ -5,9 +5,10 @@ class BatchFrameProcessor:
     DEFAULT_ALPHA = 0.3
     DEFAULT_OUTPUT_FREQUENCY = 100
     
-    def __init__(self, trajectory_data, mask_colors, alpha, output_frequency):
+    def __init__(self, trajectory_data, mask_colors, text_color, alpha, output_frequency):
         self.trajectory_data = trajectory_data
         self.mask_colors = mask_colors
+        self.text_color = text_color
         self.alpha = alpha if alpha else self.DEFAULT_ALPHA
         self.output_frequency = output_frequency if output_frequency else self.DEFAULT_OUTPUT_FREQUENCY
 
@@ -55,4 +56,8 @@ class BatchFrameProcessor:
         """Draw small circles at each point in the frame."""
         for _, row in points_in_frame.iterrows():
             x, y = int(row['x']), int(row['y'])
+            track_id = row['track_id']
             cv2.circle(frame, (x, y), radius=3, color=color, thickness=-1)
+            text_position = (x + 5, y - 5)  # Offset to avoid overlap with circle
+            cv2.putText(frame, str(track_id), text_position, cv2.FONT_HERSHEY_SIMPLEX, 
+                        fontScale=0.5, color=self.text_color, thickness=1, lineType=cv2.LINE_AA)
