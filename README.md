@@ -30,49 +30,48 @@ python -m unittest discover tests
    - Create a configuration file (e.g., `config.json`) that defines paths, colors, and processing parameters. You can use the following as a template:
 
    ```json
-  {
-    "originals_path": "/path/to/video.tif",
-    "segmentation_masks_path": "/path/to/mask.tif",
-    "output_dir": "path/to/output/directory",
-    "output_fps": 20,
-    "save_as_tiff": true,
-    "cell_trajectories": { 
-      "file": "trajectories.csv",
-      "color": [15, 32, 128]
-    },
-    "csv_folder_cell_labels": "folder/with/csv/labels",
-    "cell_labels": [
-      {
-        "name": "moving",
-        "file": "labels_moving.csv",
-        "color": [255, 0, 0]
+    {
+      "originals_path": "/path/to/video.tif",
+      "segmentation_masks_path": "/path/to/mask.tif",
+      "output_dir": "path/to/output/directory",
+      "output_fps": 20,
+      "save_as_tiff": true,
+      "cell_trajectories": { 
+        "file": "trajectories.csv",
+        "color": [15, 32, 128]
       },
-      {
-        "name": "filtered",
-        "file": "labels_filtered.csv",
-        "color": [0, 0, 0]
+      "csv_folder_cell_labels": "folder/with/csv/labels",
+      "cell_labels": [
+        {
+          "name": "moving",
+          "file": "labels_moving.csv",
+          "color": [255, 0, 0]
+        },
+        {
+          "name": "filtered",
+          "file": "labels_filtered.csv",
+          "color": [0, 0, 0]
+        },
+        {
+          "name": "stationary",
+          "file": "labels_stationary.csv",
+          "color": [0, 0, 0]
+        }
+      ],
+      "track_id_color": [255, 255, 0],
+      "mask_colors": {
+        "1": [0, 255, 0],
+        "2": [255, 0, 255]
       },
-      {
-        "name": "stationary",
-        "file": "labels_stationary.csv",
-        "color": [0, 0, 0]
+      "alpha": 0.3,
+      "chunk_size": 2000,
+      "output_frequency": 1000,
+      "metadata": {
+        "pixel_size": 0.431,
+        "time_between_frames": 0.05,
+        "color": [255, 255, 0]
       }
-    ],
-    "track_id_color": [255, 255, 0],
-    "mask_colors": {
-      "1": [0, 255, 0],
-      "2": [255, 0, 255]
-    },
-    "alpha": 0.3,
-    "chunk_size": 2000,
-    "output_frequency": 1000,
-    "metadata": {
-      "pixel_size": 0.431,
-      "time_between_frames": 0.05,
-      "color": [255, 255, 0]
     }
-  }
-
     ```
 2. **Run**:
 ```bash
